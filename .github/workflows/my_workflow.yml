@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-    working-directory: ./pavani_module/example
+    working-directory: pavani_module/example
     
 
 jobs:
