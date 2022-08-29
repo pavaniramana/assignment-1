@@ -1,8 +1,8 @@
-name: adding terraform with github_actions
+name: adding terraform github_actions
 
 on:
   push:
-    branches:["master"]
+    branches:["main", "master"]
 
   workflow_dispatch:
 
