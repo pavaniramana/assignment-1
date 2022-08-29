@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-    working-directory: pavani_module/example
+    working-directory: ./pavani_module_16_09/example
     
 
 jobs:
@@ -16,8 +16,8 @@ jobs:
 
     env:
         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-        AWS_SECRET_ACCESS_KEY: ${{secrets.aws_secret_access_key}}
-        AWS_SESSION_TOKEN: ${{secrets.aws_session_token}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        AWS_SESSION_TOKEN: ${{secrets.AWS_SESSION_TOKEN}}
         AWS_DEFAULT_REGION: us-east-1
 
     steps:
@@ -42,18 +42,18 @@ jobs:
         run: terraform plan
         working-directory: ${{env.working-directory}}
 
-      - name: Terraform plan status
-        if: steps.plan.outcome == 'failure'
-        run: echo "oops not done!"
+      # - name: Terraform plan status
+      #   if: steps.plan.outcome == 'failure'
+      #   run: echo "oops not done!"
 
-      - name: Terraform apply
-        id: apply
-        if: steps.plan.outcome != 'failure'
-        run: terraform apply -auto-approve
-        working-directory: ${{env.working-directory}}
+      # - name: Terraform apply
+      #   id: apply
+      #   if: steps.plan.outcome != 'failure'
+      #   run: terraform apply -auto-approve
+      #   working-directory: ${{env.working-directory}}
 
-      - name: Terraform destroy
-        id: destroy
-        run: terraform destroy -auto-approve
-        working-directory: ${{env.working-directory}}
+      # - name: Terraform destroy
+      #   id: destroy
+      #   run: terraform destroy -auto-approve
+      #   working-directory: ${{env.working-directory}}
 
