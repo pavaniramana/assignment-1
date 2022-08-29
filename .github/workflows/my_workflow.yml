@@ -13,14 +13,15 @@ env:
 jobs:
   apply_the_terraform:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      env:
+    env:
         AWS_ACCESS_KEY_ID: ${{secrete.aws_access_key_id}}
         AWS_SECRET_ACCESS_KEY: ${{secrete.aws_secret_access_key}}
         AWS_SESSION_TOKEN: ${{secrete.aws_session_token}}
         AWS_DEFAULT_REGION: us-east-1
+        
+    steps:
+      - uses: actions/checkout@v3
 
 
       - name: Setup Terraform
