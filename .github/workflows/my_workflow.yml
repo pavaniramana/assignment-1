@@ -8,9 +8,9 @@ on:
 
 env:
     working_directory: ./pavani_module/example
-    AWS_ACCESS_KEY_ID: ${{secrete.AWS_ACCESS_KEY_ID}}
-    AWS_SECRET_ACCESS_KEY: ${{secrete.AWS_SECRET_ACCESS_KEY}}
-    AWS_SESSION_TOKEN: ${{secrete.AWS_SESSION_TOKEN}}
+    AWS_ACCESS_KEY_ID: ${{secrete.aws_access_key_id}}
+    AWS_SECRET_ACCESS_KEY: ${{secrete.aws_secret_access_key}}
+    AWS_SESSION_TOKEN: ${{secrete.aws_session_token}}
     AWS_DEFAULT_REGION: us-east-1
 
 jobs:
