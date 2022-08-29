@@ -42,18 +42,14 @@ jobs:
         run: terraform plan
         working-directory: ${{env.working-directory}}
 
-      # - name: Terraform plan status
-      #   if: steps.plan.outcome == 'failure'
-      #   run: echo "oops not done!"
+      - name: Terraform apply
+        id: apply
+        if: steps.plan.outcome != 'failure'
+        run: terraform apply -auto-approve
+        working-directory: ${{env.working-directory}}
 
-      # - name: Terraform apply
-      #   id: apply
-      #   if: steps.plan.outcome != 'failure'
-      #   run: terraform apply -auto-approve
-      #   working-directory: ${{env.working-directory}}
-
-      # - name: Terraform destroy
-      #   id: destroy
-      #   run: terraform destroy -auto-approve
-      #   working-directory: ${{env.working-directory}}
+      - name: Terraform destroy
+        id: destroy
+        run: terraform destroy -auto-approve
+        working-directory: ${{env.working-directory}}
 
